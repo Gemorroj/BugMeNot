@@ -1,5 +1,3 @@
-
-
 window.addEventListener('DOMContentLoaded', function () {
     var key;
 
