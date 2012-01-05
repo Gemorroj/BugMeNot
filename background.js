@@ -3,7 +3,7 @@ function getTab () {
 }
 
 opera.contexts.toolbar.addItem(opera.contexts.toolbar.createItem({
-    title: "Find logins/passwords for websites that force you to register.",
+    title: "BugMeNot",
     icon: "icons/icon18.png",
     disabled: false,
     popup: {
