@@ -45,6 +45,6 @@ window.addEventListener('DOMContentLoaded', function () {
             document.getElementById("val").innerHTML = text;
         });
     } else {
-        document.getElementById("val").innerHTML = "=)";
+        document.getElementById("val").innerHTML = "Error";
     }
 }, false);
