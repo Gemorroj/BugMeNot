@@ -66,3 +66,29 @@ div.account td.stats em.good {
     color: rgb(0, 205, 5);
     font-style: normal;
 }
+
+div.account form.vote {
+    color: #989898;
+    font-size: 10px;
+    margin-left: 320px;
+    padding: 10px;
+}
+
+div.account form.vote label {
+    display: block;
+    line-height: 125%;
+    margin-bottom: 5px;
+}
+
+form input.submit {
+    background-color: #CD0000;
+    border: 1px solid #E67D7D;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+div.account form.vote input.yes {
+    background-color: #00CD05;
+    border: 1px solid #61FF60;
+}

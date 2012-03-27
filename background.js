@@ -8,7 +8,7 @@ opera.contexts.toolbar.addItem(opera.contexts.toolbar.createItem({
     disabled: false,
     popup: {
         href: "popup.html",
-        width: 400,
+        width: 496,
         height: 500
     }
 }));

@@ -1,3 +1,26 @@
+function castVote (site, account, vote) {
+    var val = document.getElementById("account" + account);
+
+    var img = document.createElement("img");
+    img.src = "loader.gif";
+    img.alt = "Please, Wait...";
+
+    val.appendChild(img);
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            val.removeChild(img);
+            val.appendChild(document.createTextNode("Ok"));
+        } else if (xmlhttp.readyState >= 4) {
+            val.removeChild(img);
+            val.appendChild(document.createTextNode("Error"));
+        }
+    };
+    xmlhttp.open("GET", 'http://www.bugmenot.com/vote_ajax.php?id=' + account + '&site=' + site + '&vote=' + vote, false);
+    xmlhttp.send(null);
+}
+
 window.addEventListener('DOMContentLoaded', function () {
     var key;
 
@@ -29,11 +52,18 @@ window.addEventListener('DOMContentLoaded', function () {
         key = Number(xml.querySelectorAll("script")[1].innerText.replace(/[^0-9-]/g, ''));
 
         var form = xml.querySelector("div.panel.minor");
+
+
+        var nodes = form.querySelectorAll("form");
+        for (var i = 0, l = nodes.length; i < l; i++) {
+            nodes[i].action = "#";
+        }
+        /*
         var nodes = form.querySelectorAll("form");
         for (var i = 0, l = nodes.length; i < l; i++) {
             nodes[i].parentNode.removeChild(nodes[i]);
         }
-
+        */
         return form.innerHTML.replace(/<script>d\('(.+)'\);<\/script>/g, function (str, p1) {
             return decoder(p1);
         });
