@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 return callback('Error!<br />URL: ' + url + '<br />Status: ' + xmlhttp.status);
             }
         };
+        xmlhttp.overrideMimeType('application/xml');
         xmlhttp.open("GET", url, false);
         xmlhttp.send(null);
     }
