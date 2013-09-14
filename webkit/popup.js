@@ -1,4 +1,5 @@
-window["castVote"] = function (site, account, vote) {
+function castVote (site, account, vote) {
+    alert(1);
     var val = document.getElementById("account" + account);
     var img = document.createElement("img");
     img.src = "loader.gif";
@@ -16,7 +17,7 @@ window["castVote"] = function (site, account, vote) {
     };
     xmlhttp.open("GET", 'http://www.bugmenot.com/vote_ajax.php?id=' + account + '&site=' + site + '&vote=' + vote, false);
     xmlhttp.send(null);
-};
+}
 
 window.addEventListener('DOMContentLoaded', function () {
     var key;
@@ -58,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    chrome.tabs.query({"currentWindow": true, "active": true}, function (tabs) {
+    chrome.tabs.query({"active": true}, function (tabs) {
         var tab = tabs[0], win;
         if (tab && tab.url && (win = tab.url.split("/")[2])) {
             getContent('http://www.bugmenot.com/view/' + win, function (text) {

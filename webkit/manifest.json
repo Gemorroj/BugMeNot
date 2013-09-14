@@ -17,5 +17,5 @@
         "default_icon": "icons/icon16.png",
         "default_popup": "popup.html"
     },
-    "permissions": ["tabs", "http://www.bugmenot.com/*"]
+    "permissions": ["tabs", "http://www.bugmenot.com/"]
 }
