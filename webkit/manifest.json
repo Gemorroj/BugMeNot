@@ -1,0 +1,15 @@
+{
+"name": "BugMeNot",
+"developer": {"name" : "Gemorroj (based on BugMeNot by dreamcarved)", "url" : "http://my.opera.com/Gemorroj/"},
+"description" : "Find logins/passwords for websites that force you to register.",
+"manifest_version" : 2,
+"version" : "1.1",
+"background" : {"page" : "index.html"},
+"icons" : {"128": "icons/icon18.png"},
+"browser_action" : {},
+"content_scripts": [
+{"js": ["oex_shim/operaextensions_injectedscript.js", "includes/fix.js"], "matches": ["<all_urls>"], "include_globs": ["*"], "exclude_globs": [], "run_at": "document_start", "all_frames" : true}],
+"web_accessible_resources" : ["icons/icon18.png","icons/icon64.png","includes/fix.js","background.js","loader.gif","popup.css","popup.js"],
+"permissions" : ["tabs", "https://*/*", "storage", "http://*/*"],
+"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'unsafe-eval';"
+}

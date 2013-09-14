@@ -1,0 +1,94 @@
+body {
+    color: rgb(204, 204, 204);
+    font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+    font-size: 11px;
+    line-height: 150%;
+}
+
+div.panel {
+    border: 1px solid rgb(152, 152, 152);
+    margin: 5px 0;
+    padding: 12px;
+}
+
+div.panel.minor {
+    background-color: rgb(46, 46, 46);
+    text-align: left;
+}
+
+div.panel h2 {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 0.3em;
+    text-transform: uppercase;
+}
+
+div.account {
+    border-top: 1px dashed rgb(92, 92, 92);
+    clear: left;
+    height: 83px;
+    padding: 10px;
+}
+
+div.account table {
+    border-spacing: 6px 3px;
+    float: left;
+    width: 320px;
+}
+
+div.account th {
+    color: rgb(152, 152, 152);
+    font-size: 10px;
+    font-weight: 400;
+    text-align: right;
+    width: 35px;
+}
+
+div.account td {
+    background-color: rgb(33, 33, 33);
+    color: rgb(255, 255, 255);
+    font-family: "Courier New", "Courier", monospace;
+    padding: 0 3px;
+}
+
+div.account td.stats {
+    background-color: rgb(46, 46, 46);
+    color: rgb(152, 152, 152);
+}
+
+div.account td.stats em.bad {
+    color: rgb(205, 0, 0);
+    font-style: normal;
+}
+
+div.account td.stats em.good {
+    color: rgb(0, 205, 5);
+    font-style: normal;
+}
+
+div.account form.vote {
+    color: #989898;
+    font-size: 10px;
+    margin-left: 320px;
+    padding: 10px;
+}
+
+div.account form.vote label {
+    display: block;
+    line-height: 125%;
+    margin-bottom: 5px;
+}
+
+form input.submit {
+    background-color: #CD0000;
+    border: 1px solid #E67D7D;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+div.account form.vote input.yes {
+    background-color: #00CD05;
+    border: 1px solid #61FF60;
+}
