@@ -3,7 +3,7 @@ function castVote (site, account, vote) {
 
     var img = document.createElement("img");
     img.src = "loader.gif";
-    img.alt = "Please, Wait...";
+    img.alt = "Wait...";
 
     val.appendChild(img);
 

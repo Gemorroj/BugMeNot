@@ -16,7 +16,7 @@ div.panel.minor {
     text-align: left;
     width: 440px;
 }
-div.panel.minor img {
+div.panel.minor img.loader {
     text-align: center;
     margin-left: 212px;
 }

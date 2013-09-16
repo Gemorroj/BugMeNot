@@ -1,9 +1,8 @@
 function castVote (site, account, vote) {
-    alert(1);
     var val = document.getElementById("account" + account);
     var img = document.createElement("img");
     img.src = "loader.gif";
-    img.alt = "Please, Wait...";
+    img.alt = "Wait...";
     val.appendChild(img);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -20,6 +19,33 @@ function castVote (site, account, vote) {
 }
 
 window.addEventListener('DOMContentLoaded', function () {
+    function castVoteHandler (e) {
+        var element = e.target;
+        castVote(
+            element.getAttribute('data-site'),
+            element.getAttribute('data-account'),
+            element.getAttribute('data-vote')
+        );
+        element.disabled = true;
+        element.style.backgroundColor = '#CCCCCC';
+
+        e.preventDefault();
+        return false;
+    }
+    function castVoteParser (element) {
+        // castVote(187442, 3938438, 'Y')
+        var onclick = element.getAttribute('onclick');
+        element.removeAttribute('onclick');
+        var onclickParsed = onclick.replace('castVote(', '').replace(')', '').replace(/'/g, '');
+        onclickParsed = onclickParsed.split(', ');
+
+        element.setAttribute('data-site', onclickParsed[0]);
+        element.setAttribute('data-account', onclickParsed[1]);
+        element.setAttribute('data-vote', onclickParsed[2]);
+    }
+
+
+
     var key;
 
     function decoder(strInput) {
@@ -64,6 +90,13 @@ window.addEventListener('DOMContentLoaded', function () {
         if (tab && tab.url && (win = tab.url.split("/")[2])) {
             getContent('http://www.bugmenot.com/view/' + win, function (text) {
                 document.getElementById("val").innerHTML = text;
+
+                var votes = document.querySelectorAll("input[type='submit'][name='vote']");
+                for (var i = 0, l = votes.length; i < l; ++i) {
+                    var item = votes[i];
+                    castVoteParser(item);
+                    item.addEventListener("click", castVoteHandler);
+                }
             });
         } else {
             document.getElementById("val").innerHTML = "Error";
