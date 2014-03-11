@@ -61,6 +61,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //FIXME: теперь это не XML
                 return callback(parseContent(xmlhttp.responseXML));
             } else if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
                 return callback('Not Found');
@@ -88,7 +89,7 @@ window.addEventListener('DOMContentLoaded', function () {
     chrome.tabs.query({"active": true}, function (tabs) {
         var tab = tabs[0], win;
         if (tab && tab.url && (win = tab.url.split("/")[2])) {
-            getContent('http://www.bugmenot.com/view/' + win, function (text) {
+            getContent('http://bugmenot.com/view/' + win, function (text) {
                 document.getElementById("val").innerHTML = text;
 
                 var votes = document.querySelectorAll("input[type='submit'][name='vote']");
