@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     var tab = opera.extension.bgProcess.getTab(), win;
     if (tab && tab.url && (win = tab.url.split("/")[2])) {
-        getContent('http://www.bugmenot.com/view/' + win, function (text) {
+        getContent('http://bugmenot.com/view/' + win, function (text) {
             document.getElementById("val").innerHTML = text;
         });
     } else {
