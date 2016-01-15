@@ -2,7 +2,7 @@
     "name": "BugMeNot",
     "developer": {
         "name": "Gemorroj (based on BugMeNot by dreamcarved)",
-        "url": "http://my.opera.com/Gemorroj/"
+        "url": "https://github.com/Gemorroj/BugMeNot"
     },
     "icons": {
         "16": "icons/icon16.png",
@@ -11,7 +11,7 @@
     },
     "description": "Find logins/passwords for websites that force you to register.",
     "manifest_version": 2,
-    "version": "1.2",
+    "version": "1.3",
     "browser_action": {
         "default_title": "BugMeNot",
         "default_icon": "icons/icon16.png",
