@@ -1,21 +1,22 @@
 window.addEventListener('DOMContentLoaded', function () {
     function getContent(url, callback) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var text = xmlhttp.responseText;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var text = xmlHttp.responseText;
                 var dom = (new DOMParser()).parseFromString(text, "text/html");
+                var str = parseContent(dom);
 
-                return callback(parseContent(dom));
-            } else if (xmlhttp.readyState == 4 && xmlhttp.status == 404) {
+                return callback(str);
+            } else if (xmlHttp.readyState == 4 && xmlHttp.status == 404) {
                 return callback('Not Found');
-            } else if (xmlhttp.readyState >= 4) {
-                return callback('Error!<br />URL: ' + url + '<br />Status: ' + xmlhttp.status);
+            } else if (xmlHttp.readyState >= 4) {
+                return callback('Error!<br />URL: ' + url + '<br />Status: ' + xmlHttp.status);
             }
         };
-        xmlhttp.overrideMimeType('text/html');
-        xmlhttp.open("GET", url, false);
-        xmlhttp.send(null);
+        xmlHttp.overrideMimeType('text/html');
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
     }
 
     function parseContent(domNode) {

@@ -1,1 +1,0 @@
-// This script is needed for opera.extension.tabs.getFocused() execution.
