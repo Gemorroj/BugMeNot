@@ -23,10 +23,14 @@ window.addEventListener('DOMContentLoaded', function () {
         var outText = '';
         var articles = domNode.querySelectorAll('article');
 
-        [].forEach.call(articles, function (article) {
-            article.querySelector('form').remove();
-            outText += '<article class="account">' + article.innerHTML + '</article>';
-        });
+        if (articles.length) {
+            [].forEach.call(articles, function (article) {
+                article.querySelector('form').remove();
+                outText += '<article class="account">' + article.innerHTML + '</article>';
+            });
+        } else {
+            outText += domNode.getElementById('content').innerHTML;
+        }
 
         return outText;
     }
@@ -35,7 +39,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var tab = tabs[0], win;
         if (tab && tab.url && (win = tab.url.split("/")[2])) {
             getContent('http://bugmenot.com/view/' + win, function (text) {
-                document.getElementById("content").innerHTML = text;
+                document.getElementById("content").innerHTML = safeResponse.cleanDomString(text);
             });
         } else {
             document.getElementById("content").innerHTML = "Error";
